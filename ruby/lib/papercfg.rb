@@ -1,3 +1,4 @@
+require 'yaml'
 require 'papercfg/version'
 
 module PaperCfg

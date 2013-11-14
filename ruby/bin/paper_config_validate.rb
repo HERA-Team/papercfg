@@ -2,7 +2,6 @@
 
 # Script to validate hookup info
 
-require 'yaml'
 require 'papercfg'
 include PaperCfg
 
