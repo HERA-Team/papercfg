@@ -1,0 +1,134 @@
+# Map station to antenna
+# sA0-sG15 is main grid
+# sX0-sX15 is outlier positions
+# sZ0 is reference "station" (SE corner of hut)
+#
+sA0  : # TBD
+sA1  : a10
+sA2  : a49
+sA3  : a3
+sA4  : a41
+sA5  : a25
+sA6  : a19
+sA7  : a48
+sA8  : a29
+sA9  : a24
+sA10 : a28
+sA11 : a55
+sA12 : a34
+sA13 : a27
+sA14 : a51
+sA15 : a57
+sB0  : # TBD
+sB1  : a9
+sB2  : # TBD
+sB3  : a58
+sB4  : # TBD
+sB5  : a1
+sB6  : a47
+sB7  : a4
+sB8  : # TBD
+sB9  : a17
+sB10 : # TBD
+sB11 : a13
+sB12 : # TBD
+sB13 : a56
+sB14 : # TBD
+sB15 : a59
+sC0  : # TBD
+sC1  : a22
+sC2  : # TBD
+sC3  : a61
+sC4  : # TBD
+sC5  : a35
+sC6  : # TBD
+sC7  : a18
+sC8  : # TBD
+sC9  : a5
+sC10 : # TBD
+sC11 : a32
+sC12 : # TBD
+sC13 : a30
+sC14 : # TBD
+sC15 : a23
+sD0  : # TBD
+sD1  : a20
+sD2  : # TBD
+sD3  : a63
+sD4  : # TBD
+sD5  : a42
+sD6  : # TBD
+sD7  : a37
+sD8  : # TBD
+sD9  : a40
+sD10 : # TBD
+sD11 : a14
+sD12 : # TBD
+sD13 : a54
+sD14 : # TBD
+sD15 : a50
+sE0  : # TBD
+sE1  : a43
+sE2  : # TBD
+sE3  : a2
+sE4  : # TBD
+sE5  : a33
+sE6  : # TBD
+sE7  : a6
+sE8  : # TBD
+sE9  : a52
+sE10 : # TBD
+sE11 : a7
+sE12 : # TBD
+sE13 : a12
+sE14 : # TBD
+sE15 : a38
+sF0  : # TBD
+sF1  : a53
+sF2  : # TBD
+sF3  : a21
+sF4  : # TBD
+sF5  : a15
+sF6  : # TBD
+sF7  : a16
+sF8  : # TBD
+sF9  : a62
+sF10 : # TBD
+sF11 : a44
+sF12 : # TBD
+sF13 : a0
+sF14 : # TBD
+sF15 : a26
+sG0  : # TBD
+sG1  : a31
+sG2  : # TBD
+sG3  : a45
+sG4  : # TBD
+sG5  : a8
+sG6  : # TBD
+sG7  : a11
+sG8  : # TBD
+sG9  : a36
+sG10 : # TBD
+sG11 : a60
+sG12 : # TBD
+sG13 : a39
+sG14 : # TBD
+sG15 : a46
+sX0  : # TBD
+sX1  : # TBD
+sX2  : # TBD
+sX3  : # TBD
+sX4  : # TBD
+sX5  : # TBD
+sX6  : # TBD
+sX7  : # TBD
+sX8  : # TBD
+sX9  : # TBD
+sX10 : # TBD
+sX11 : # TBD
+sX12 : # TBD
+sX13 : # TBD
+sX14 : # TBD
+sX15 : # TBD
+sZ0  : a-1
