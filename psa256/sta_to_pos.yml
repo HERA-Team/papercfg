@@ -121,17 +121,21 @@ sG12 : # TBD
 sG13 : [541040.995, 6600962.843, 1048.469]
 sG14 : # TBD
 sG15 : [541070.955, 6600962.844, 1048.512]
-sX0  : # TBD
-sX1  : # TBD
-sX2  : # TBD
-sX3  : # TBD
-sX4  : # TBD
-sX5  : # TBD
-sX6  : # TBD
-sX7  : # TBD
-sX8  : # TBD
-sX9  : # TBD
-sX10 : # TBD
+# paper_final_positions.CSV did not have any outlier positions.  The outlier
+# positions for stations sX0 to sX10 are taken from psa128_07aug2013_utm.CSV
+# that Chris Carilli emailed to the PAPER group on 2013-11-02.  The positions
+# here have been adjusted to account for the offset in reference locations.
+sX0  : [540864.924, 6600982.455, 1048.674]
+sX1  : [540975.579, 6600984.548, 1048.615]
+sX2  : [541078.482, 6600982.564, 1048.668]
+sX3  : [541084.120, 6600984.510, 1048.680]
+sX4  : [541075.092, 6601001.725, 1048.538]
+sX5  : [541072.638, 6601022.488, 1048.346]
+sX6  : [541071.950, 6601043.238, 1048.201]
+sX7  : [541070.092, 6601064.209, 1047.989]
+sX8  : [541067.598, 6601084.966, 1047.794]
+sX9  : [541014.912, 6601105.681, 1047.565]
+sX10 : [540898.644, 6601107.210, 1047.538]
 sX11 : # TBD
 sX12 : # TBD
 sX13 : # TBD
