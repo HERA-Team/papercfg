@@ -15,16 +15,18 @@ module PaperCfg
     'pos'    => 'position'
   }
 
+  # Patterns used to validate names of each type.  Parentheses are used to
+  # capture each variable portion of a name.
   PATTERNS = {
     'ant'    => /^a(-?[1-9]\d*|0)$/,
-    'antpol' => /^a(-?[1-9]\d*|0)[XY]$/,
-    'sta'    => /^s[A-Z]([1-9]\d*|0)$/,
-    'stapol' => /^s[A-Z]([1-9]\d*|0)[XY]$/,
-    'rx'     => /^r[1-8][AB][1-8]$/,
-    'rxpol'  => /^r[1-8][AB][1-8][XY]$/,
-    'plate'  => /^p[1-6]r[1-6]c[1-8]$/,
-    'fxin'   => /^f[1-8][A-H][1-4]$/,
-    'pos'    => nil # Validating positions not yet supported
+    'antpol' => /^a(-?[1-9]\d*|0)([XY])$/,
+    'sta'    => /^s([A-Z])([1-9]\d*|0)$/,
+    'stapol' => /^s([A-Z])([1-9]\d*|0)([XY])$/,
+    'rx'     => /^r([1-8])([AB])([1-8])$/,
+    'rxpol'  => /^r([1-8])([AB])([1-8])([XY])$/,
+    'plate'  => /^p([1-6])r([1-6])c([1-8])$/,
+    'fxin'   => /^f([1-8])([A-H])([1-4])$/,
+    'pos'    => nil # Positions are Arrays, not Strings
   }
 
   MNEMONICS = PATTERNS.keys
@@ -98,4 +100,42 @@ module PaperCfg
     end
   end
   module_function :print_map_validity_for_filename
+
+  # Sort +a+ as if it contains antenna names
+  def sort_ants(a)
+    a.sort_by {|e| e =~ PATTERNS['ant']; $1.to_i}
+  end
+  module_function :sort_ants
+
+  # Sort +a+ as if it contains antpol names
+  def sort_antpols(a)
+    a.sort_by {|e| e =~ PATTERNS['antpol']; [$1.to_i, $2]}
+  end
+  module_function :sort_antpols
+
+  # Sort +a+ as if it contains station names
+  def sort_stas(a)
+    a.sort_by {|e| e =~ PATTERNS['sta']; [$1, $2.to_i]}
+  end
+  module_function :sort_stas
+
+  # Sort +a+ as if it contains stapols
+  def sort_stapols(a)
+    a.sort_by {|e| e =~ PATTERNS['stapol']; [$1.to_i, $2]}
+  end
+  module_function :sort_stapols
+
+  # Sort +a+ based on type of first element
+  def sort(a)
+    case a[0]
+    when PATTERNS['ant']; sort_ants(a)
+    when PATTERNS['antpol']; sort_antpols(a)
+    when PATTERNS['sta']; sort_stas(a)
+    when PATTERNS['stapol']; sort_stapols(a)
+    else
+      a.sort
+    end
+  end
+  module_function :sort
+
 end
