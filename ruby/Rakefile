@@ -1,0 +1,54 @@
+require 'rubygems'
+require 'rubygems/package_task'
+
+# Get PaperCfg::VERSION
+require './lib/papercfg/version.rb'
+
+spec = Gem::Specification.new do |s|
+  # Basics
+  s.name = 'papercfg'
+  s.version = PaperCfg::VERSION
+  s.summary = 'Ruby classes for maniulating PAPER configuration and hookup files.'
+  s.description = <<-EOD
+    Ruby classes for maniulating PAPER configuration and hookup files.
+    EOD
+  #s.platform = Gem::Platform::Ruby
+  s.required_ruby_version = '>= 1.8.7'
+
+  # About
+  s.authors = 'David MacMahon'
+  s.email = 'davidm@astro.berkeley.edu'
+  s.homepage = 'http://astro.berkeley.edu/~davidm/rb-papercfg.git'
+  #s.rubyforge_project = 'rb-papergpu' 
+
+  # Files, Libraries, and Extensions
+  s.files = %w[
+    bin/paper_config_validate.rb
+    lib/papercfg.rb
+    lib/papercfg/version.rb
+  ]
+  s.require_paths = ['lib']
+  #s.autorequire = nil
+  #s.bindir = 'bin'
+  s.executables = %w[
+    paper_config_validate.rb
+  ]
+  #s.default_executable = nil
+
+  # C compilation
+  #s.extensions = %w[ ext/extconf.rb ]
+
+  # Documentation
+  s.rdoc_options = ['--title', "Ruby/PaperCfg #{s.version} Documentation"]
+  #s.rdoc_options << '-m' << 'README'
+  s.has_rdoc = true
+  #s.extra_rdoc_files = %w[README]
+
+  # Testing TODO
+  #s.test_files = [test/test.rb]
+end
+
+Gem::PackageTask.new(spec) do |pkg|
+  pkg.need_zip = true
+  pkg.need_tar = true
+end
