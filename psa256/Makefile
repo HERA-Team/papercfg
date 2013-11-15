@@ -5,6 +5,7 @@ REFERENCE_FILES = sta_to_ant.yml \
 
 DERIVED_FILES = ant_to_pos.yml \
                 ant_to_sta.yml \
+								plate_to_stapol.yml \
 								stapol_to_plate.yml \
                 stapol_to_rxpol.yml
 
@@ -13,6 +14,9 @@ all: $(DERIVED_FILES)
 # Files created by paper_config_invert.rb
 
 ant_to_sta.yml: sta_to_ant.yml
+	paper_config_invert.rb $^ > $@
+
+plate_to_stapol.yml: stapol_to_plate.yml
 	paper_config_invert.rb $^ > $@
 
 # Files created by paper_config_polarize.rb
