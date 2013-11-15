@@ -1,5 +1,5 @@
 # Derived PAPER configuration mapping created by paper_config_polarize.rb
-# Derived from: 9f7510d sta_to_rx.yml
+# Derived from: 969c21e sta_to_rx.yml
 ---
 sA0X  : r3A3X
 sA0Y  : r3A3Y
@@ -65,8 +65,8 @@ sB14X : r5A4X
 sB14Y : r5A4Y
 sB15X : r7B5X
 sB15Y : r7B5Y
-sC0X  : r3B3X
-sC0Y  : r3B3Y
+sC0X  : r3B2X
+sC0Y  : r3B2Y
 sC1X  : r2A8X
 sC1Y  : r2A8Y
 sC2X  : r3A5X
@@ -85,8 +85,8 @@ sC8X  : r4A5X
 sC8Y  : r4A5Y
 sC9X  : r6B2X
 sC9Y  : r6B2Y
-sC10X : r4B3X
-sC10Y : r4B3Y
+sC10X : r4B2X
+sC10Y : r4B2Y
 sC11X : r7A8X
 sC11Y : r7A8Y
 sC12X : r5B4X
@@ -221,8 +221,8 @@ sG12X : r5A7X
 sG12Y : r5A7Y
 sG13X : r7B2X
 sG13Y : r7B2Y
-sG14X : r5B3X
-sG14Y : r5B3Y
+sG14X : r5B2X
+sG14Y : r5B2Y
 sG15X : r7A2X
 sG15Y : r7A2Y
 sX0X  : r3A8X

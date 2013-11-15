@@ -10,8 +10,8 @@ sG1   : r1A6
 sF5   : r1A7
 sE3   : r1A8
 sA6   : r1B1
-sF7   : r1B3
 sE7   : r1B2
+sF7   : r1B3
 sA8   : r1B4
 sG7   : r1B5
 sD5   : r1B6
@@ -44,7 +44,7 @@ sC6   : r3A6
 sE0   : r3A7
 sX0   : r3A8
 sE6   : r3B1
-sC0   : r3B3
+sC0   : r3B2
 sG6   : r3B3
 sD0   : r3B4
 sB2   : r3B5
@@ -61,7 +61,7 @@ sF10  : r4A6
 sE4   : r4A7
 sD6   : r4A8
 sG10  : r4B1
-sC10  : r4B3
+sC10  : r4B2
 sD8   : r4B3
 sC4   : r4B4
 sE8   : r4B5
@@ -78,8 +78,8 @@ sE12  : r5A6
 sG12  : r5A7
 sB10  : r5A8
 sB4   : r5B1
+sG14  : r5B2
 sB12  : r5B3
-sG14  : r5B3
 sC12  : r5B4
 sD14  : r5B5
 sD12  : r5B6

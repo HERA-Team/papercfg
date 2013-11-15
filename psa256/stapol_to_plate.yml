@@ -1,5 +1,5 @@
 # Derived PAPER configuration mapping created by paper_config_chain.rb
-# Derived from: 5adcf24 stapol_to_rxpol.yml
+# Derived from: ffb2675 stapol_to_rxpol.yml
 #               5d8886a rxpol_to_plate.yml
 ---
 sA0X  : p2r3c3
@@ -66,8 +66,8 @@ sB14X : p3r5c4
 sB14Y : p3r6c4
 sB15X : p5r3c5
 sB15Y : p5r4c5
-sC0X  : p2r5c3
-sC0Y  : p2r6c3
+sC0X  : p2r5c2
+sC0Y  : p2r6c2
 sC1X  : p1r5c8
 sC1Y  : p1r6c8
 sC2X  : p2r3c5
@@ -86,8 +86,8 @@ sC8X  : p3r1c5
 sC8Y  : p3r2c5
 sC9X  : p4r5c2
 sC9Y  : p4r6c2
-sC10X : p3r3c3
-sC10Y : p3r4c3
+sC10X : p3r3c2
+sC10Y : p3r4c2
 sC11X : p5r1c8
 sC11Y : p5r2c8
 sC12X : p4r1c4
@@ -222,8 +222,8 @@ sG12X : p3r5c7
 sG12Y : p3r6c7
 sG13X : p5r3c2
 sG13Y : p5r4c2
-sG14X : p4r1c3
-sG14Y : p4r2c3
+sG14X : p4r1c2
+sG14Y : p4r2c2
 sG15X : p5r1c2
 sG15Y : p5r2c2
 sX0X  : p2r3c8
