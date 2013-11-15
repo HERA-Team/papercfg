@@ -1,5 +1,16 @@
 require 'yaml'
+require 'digest/sha1'
 require 'papercfg/version'
+
+# Add Digest.git_hash function that returns Digest::SHA1 object representing
+# the "git hash-object" value for a named file.
+module Digest
+  # Returns Digest::SHA1 object representing the "git hash-object" value for
+  # file named by +fn+.
+  def self.git_hash(fn)
+    Digest::SHA1.new.update("blob #{File.size(fn)}\0").file(fn)
+  end
+end
 
 module PaperCfg
 
