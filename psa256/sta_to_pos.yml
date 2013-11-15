@@ -1,7 +1,11 @@
+# Reference PAPER config file.
+# This file is *NOT* derived from any other file.
+#
 # Map station position to [east, north, up] (meters)
 # sA0-sG15 are main grid
 # sX0-sX15 are outlier positions
 # sZ0      is reference position (SE corner of hut)
+---
 metadata :
   units  : m
   origin : # TBD

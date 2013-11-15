@@ -1,3 +1,6 @@
+# Reference PAPER config file.
+# This file is *NOT* derived from any other file.
+---
 sC3   : r1A1
 sD7   : r1A2
 sD1   : r1A3

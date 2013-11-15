@@ -1,8 +1,11 @@
+# Reference PAPER config file.
+# This file is *NOT* derived from any other file.
+#
 # Map station to antenna
 # sA0-sG15 is main grid
 # sX0-sX15 is outlier positions
 # sZ0 is reference "station" (SE corner of hut)
-#
+---
 sA0  : # TBD
 sA1  : a10
 sA2  : a49
