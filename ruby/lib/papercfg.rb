@@ -126,7 +126,20 @@ module PaperCfg
       !!@canonical
     end
 
-    # TODO: Create invert function!
+    # Creates the inverse mapping of this mapping.  The inverse mapping is not
+    # considered canonical.  Any metadata of this mapping is also metadata of
+    # the inverse mapping.  nil values are NOT copied over as nil keys.
+    def invert
+      inv = self.class.new
+      self.each do |k,v|
+        if k == 'metadata'
+          inv[k] = v
+        elsif v
+          inv[v] = k
+        end
+      end
+      inv
+    end
 
     # Returns the number of unique keys
     def num_keys
