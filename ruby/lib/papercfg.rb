@@ -164,6 +164,24 @@ module PaperCfg
       outmap
     end
 
+    # Polarize this mapping by duplicating each key/value pair twice; once with
+    # an 'X' suffix on key and value and once with a 'Y' suffix on key and
+    # value.  Currently it does not prevent polarizing an already polarized
+    # file.  Any metadata information is not polarized.
+    def polarize
+      outmap = self.class.new
+      # Handle 'metadata' keys differently
+      ks = keys - ['metadata']
+      ks.each do |k|
+        outmap["#{k}X"] = "#{self[k]}X"
+        outmap["#{k}Y"] = "#{self[k]}Y"
+      end
+      if has_key? 'metadata'
+        outmap['metadata'] = self['metadata']
+      end
+      outmap
+    end
+
     # Returns the number of unique keys
     def num_keys
       keys.length

@@ -25,6 +25,7 @@ spec = Gem::Specification.new do |s|
   s.files = %w[
     bin/paper_config_chain.rb
     bin/paper_config_invert.rb
+    bin/paper_config_polarize.rb
     bin/paper_config_validate.rb
     lib/papercfg.rb
     lib/papercfg/version.rb
@@ -35,6 +36,7 @@ spec = Gem::Specification.new do |s|
   s.executables = %w[
     paper_config_chain.rb
     paper_config_invert.rb
+    paper_config_polarize.rb
     paper_config_validate.rb
   ]
   #s.default_executable = nil
