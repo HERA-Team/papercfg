@@ -12,7 +12,7 @@ end
 
 maps = ARGV.map do |f|
   #puts "Loading mapping file #{f}"
-  YAML.load_file(f)
+  PaperCfg.load_file(f)
 end
 
 # This is PaperCfg's "smart sort"

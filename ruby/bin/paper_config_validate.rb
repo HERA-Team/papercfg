@@ -12,7 +12,7 @@ end
 
 ARGV.each do |f|
   puts "Loading mapping file #{f}"
-  map = YAML.load_file(f)
+  map = PaperCfg.load_file(f)
   print_map_validity_for_filename(map, f)
   puts
 end

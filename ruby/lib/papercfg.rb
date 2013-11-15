@@ -3,6 +3,22 @@ require 'papercfg/version'
 
 module PaperCfg
 
+  class DuplicateKeyError < RuntimeError
+    attr_reader :num_dups
+
+    def initialize(ndups, msg="#{ndups} duplicate keys")
+      @num_dups = ndups
+      super(msg)
+    end
+
+    def self.raise_if_not_empty(dups)
+      if !dups.empty?
+        msg = "#{dups.length} duplicate keys: #{dups.keys.join ' '}"
+        raise self.new(dups.length, msg)
+      end
+    end
+  end
+
   COMPONENT_TYPES = {
     'ant'    => 'antenna',
     'antpol' => 'antenna polarization',
@@ -34,8 +50,30 @@ module PaperCfg
   MNEMONICS_PATTERN = /#{MNEMONICS.join('|')}/
   CANONICAL_PATTERN = /^(#{MNEMONICS_PATTERN})_to_(#{MNEMONICS_PATTERN}).ya?ml$/
 
+  # Loads a file like YAML.load_file, but raises an exception if the top level
+  # is a mapping and it contains duplicate keys.
   def load_file(f)
-    YAML.load_file(f)
+    # Parse file to abstract syntax tree form
+    ast=Psych.parse_file(f)
+    # If root node is a mapping, check for duplicate keys
+    if Psych::Nodes::Mapping === ast.root
+      map={}
+      dups={}
+
+      ast.root.children.each_slice(2) do |k,v|
+        kk = k.value
+        # Record duplicate keys
+        dups[kk] = kk if map.has_key? kk
+        map[kk] = v.value
+      end
+
+      DuplicateKeyError.raise_if_not_empty(dups)
+
+      # Could we just return map here?
+    else
+      raise "top level of #{f} is not a mapping"
+    end
+    ast.to_ruby
   end
   module_function :load_file
 
