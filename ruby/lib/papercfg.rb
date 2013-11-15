@@ -225,9 +225,10 @@ module PaperCfg
       [num_keys, num_values, num_dup_keys, num_dup_values]
     end
 
-    def print_validity
+    def print_validity(verbose=false)
       # Get stats
-      num_keys, num_vals, num_dupkeys, num_dupvals = stats
+      num_keys, num_vals, num_dupk, num_dupv = stats
+      num_vmiss = num_keys - num_vals
 
       # See if this is a canonical filename
       basename = File.basename(name)
@@ -239,19 +240,19 @@ module PaperCfg
         end
         # Print stats
         printf "%6d keys\n", num_keys
-        printf "%6d values present\n", num_vals
-        printf "%6d values missing\n", num_keys-num_vals
-        printf "%6d duplicate keys\n", num_dupkeys
-        printf "%6d duplicate values\n", num_dupvals
+        printf "%6d values present\n", num_vals   if num_vals  > 0 || verbose
+        printf "%6d values missing\n", num_vmiss  if num_vmiss > 0 || verbose
+        printf "%6d duplicate keys\n", num_dupk   if num_dupk  > 0 || verbose
+        printf "%6d duplicate values\n", num_dupv if num_dupv  > 0 || verbose
       else
         puts "File #{basename} maps #{comp_from} to #{comp_to}"
 
         # Print stats
         printf "%6d keys\n", num_keys
-        printf "%6d values present\n", num_vals
-        printf "%6d values missing\n", num_keys-num_vals
-        printf "%6d duplicate keys\n", num_dupkeys
-        printf "%6d duplicate values\n", num_dupvals
+        printf "%6d values present\n", num_vals   if num_vals  > 0 || verbose 
+        printf "%6d values missing\n", num_vmiss  if num_vmiss > 0 || verbose 
+        printf "%6d duplicate keys\n", num_dupk   if num_dupk  > 0 || verbose 
+        printf "%6d duplicate values\n", num_dupv if num_dupv  > 0 || verbose 
 
         # Check for invalid keys (but remove any 'metadata' key first)
         mapkeys = keys - ['metadata']
@@ -260,9 +261,11 @@ module PaperCfg
         num_bad_keys = bad_keys.length
 
         # Print key validity info
-        printf '%6d invalid %s keys', num_bad_keys, comp_from
-        printf ':  %s', bad_keys.join(' ') if num_bad_keys > 0
-        puts
+        if num_bad_keys > 0 || verbose
+          printf '%6d invalid %s keys', num_bad_keys, comp_from
+          printf ':  %s', bad_keys.join(' ') if num_bad_keys > 0
+          puts
+        end
 
         # Check validity of values (if applicable)
         if PATTERNS[mnemonic_to]
@@ -270,9 +273,11 @@ module PaperCfg
           to_pattern = PATTERNS[mnemonic_to]
           bad_vals = non_nil_vals.reject {|v| v =~ to_pattern}
           num_bad_vals = bad_vals.length
-          printf '%6d invalid %s values', num_bad_vals, comp_to
-          printf ':  %s', bad_vals.join(' ') if num_bad_vals > 0
-          puts
+          if num_bad_vals > 0 || verbose
+            printf '%6d invalid %s values', num_bad_vals, comp_to
+            printf ':  %s', bad_vals.join(' ') if num_bad_vals > 0
+            puts
+          end
         end
       end
     end

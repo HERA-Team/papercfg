@@ -12,8 +12,6 @@ if ARGV.empty?
 end
 
 ARGV.each do |f|
-  puts "Loading mapping file #{f}"
   map = PaperCfg.load_file(f)
   map.print_validity
-  puts
 end
