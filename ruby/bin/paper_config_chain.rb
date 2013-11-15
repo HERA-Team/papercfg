@@ -1,12 +1,15 @@
 #!/usr/bin/env ruby
 
 # Script to chain multiple mappings into one end-to-end mapping.
+#
+# Passing a single mapping file will output a sorted version of it (with all
+# comments removed).
 
+require 'rubygems'
 require 'papercfg'
-include PaperCfg
 
-if ARGV.length < 2
-  puts "usage: #{File.basename($0)} MAP_FILE1 MAP_FILE2 [...]"
+if ARGV.empty?
+  puts "usage: #{File.basename($0)} MAP_FILE1 [MAP_FILE2 [...]]"
   exit 1
 end
 
@@ -15,14 +18,5 @@ maps = ARGV.map do |f|
   PaperCfg.load_file(f)
 end
 
-# This is PaperCfg's "smart sort"
-keys = sort(maps[0].keys)
-
-# Find max key length
-max_key = keys.max_by {|k| k.length}
-width = max_key.length
-
-keys.each do |key|
-  val = maps.inject(key) {|k,m| m[k]}
-  printf("%-*s : %s\n", width, key, val)
-end
+map0 = maps.shift
+puts map0.chain(*maps).to_yaml

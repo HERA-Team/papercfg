@@ -141,6 +141,29 @@ module PaperCfg
       inv
     end
 
+    # Returns a Mapping object that maps keys from +self+ to values of
+    # <tt>others[-1]</tt> via +self+ and all the mappings in <tt>*others</tt>.
+    # Merges any metadata mapping in +self+ and <tt>others[-1]</tt>.  Returns
+    # +self+ if +others+ is empty.
+    def chain(*others)
+      return self if others.empty?
+      others.unshift(self)
+      outmap = self.class.new
+      # Handle 'metadata' keys differently
+      ks = keys - ['metadata']
+      ks.each do |k|
+        outmap[k] = others.inject(k) {|kk,map| map[kk]}
+      end
+      metadata = self['metadata']
+      if others[-1]
+        metadata = metadata ?
+                   metadata.merge(others[-1]['metadata']) :
+                   others[-1]['metadata']
+      end
+      outmap['metadata'] = metadata
+      outmap
+    end
+
     # Returns the number of unique keys
     def num_keys
       keys.length
@@ -224,7 +247,7 @@ module PaperCfg
       end
     end
 
-  end
+  end # class Mapping
 
   # Loads a file like YAML.load_file, but raises an exception if the top level
   # is a mapping and it contains duplicate keys.
