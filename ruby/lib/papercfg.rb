@@ -163,7 +163,8 @@ module PaperCfg
       # Handle 'metadata' keys differently
       ks = keys - ['metadata']
       ks.each do |k|
-        outmap[k] = others.inject(k) {|kk,map| map[kk]}
+        val = others.inject(k) {|kk,map| map[kk]}
+        outmap[k] = val if val
       end
       metadata = self['metadata']
       if others[-1]
