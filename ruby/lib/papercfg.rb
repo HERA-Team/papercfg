@@ -298,7 +298,7 @@ module PaperCfg
 
   # Sort +a+ as if it contains stapols
   def sort_stapols(a)
-    a.sort_by {|e| e =~ PATTERNS['stapol']; [$1.to_i, $2]}
+    a.sort_by {|e| e =~ PATTERNS['stapol']; [$1, $2.to_i, $3]}
   end
   module_function :sort_stapols
 
