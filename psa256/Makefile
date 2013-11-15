@@ -1,12 +1,13 @@
 REFERENCE_FILES = sta_to_ant.yml \
                   sta_to_pos.yml \
                   sta_to_rx.yml  \
-                  rxpol_to_plate.yml
+                  rxpol_to_plate.yml \
+                  plate_to_fxin.yml
 
 DERIVED_FILES = ant_to_pos.yml \
                 ant_to_sta.yml \
-								plate_to_stapol.yml \
-								stapol_to_plate.yml \
+                plate_to_stapol.yml \
+                stapol_to_plate.yml \
                 stapol_to_rxpol.yml
 
 all: $(DERIVED_FILES)
