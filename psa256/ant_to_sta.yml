@@ -1,5 +1,5 @@
 # Derived PAPER configuration mapping created by paper_config_invert.rb
-# Derived from: c7ffb17 sta_to_ant.yml
+# Derived from: 5767c7e sta_to_ant.yml
 ---
 a-1 : sZ0
 a0  : sF13

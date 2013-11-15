@@ -1,6 +1,6 @@
 # Derived PAPER configuration mapping created by paper_config_chain.rb
-# Derived from: 2055b7f ant_to_sta.yml
-#               0ffbbbf sta_to_pos.yml
+# Derived from: 2273aa2 ant_to_sta.yml
+#               a058f5d sta_to_pos.yml
 ---
 metadata:
   frame  : ENU

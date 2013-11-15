@@ -1,5 +1,5 @@
 # Derived PAPER configuration mapping created by paper_config_polarize.rb
-# Derived from: 77032c1 sta_to_rx.yml
+# Derived from: 9f7510d sta_to_rx.yml
 ---
 sA0X  : r3A3X
 sA0Y  : r3A3Y
