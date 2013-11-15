@@ -212,7 +212,7 @@ module PaperCfg
     # Returns the number of duplicated values
     def num_dup_values
       non_nil_vals = values.compact
-      non_nil_vals.length - non_nil_vals.compact.length
+      non_nil_vals.length - non_nil_vals.uniq.length
     end
 
     # Returns four stats regarding map: number of keys, number of non-nil
