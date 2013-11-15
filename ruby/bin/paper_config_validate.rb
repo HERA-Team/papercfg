@@ -2,6 +2,7 @@
 
 # Script to validate hookup info
 
+require 'rubygems'
 require 'papercfg'
 include PaperCfg
 
