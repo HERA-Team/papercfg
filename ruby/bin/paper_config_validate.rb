@@ -13,6 +13,6 @@ end
 ARGV.each do |f|
   puts "Loading mapping file #{f}"
   map = PaperCfg.load_file(f)
-  print_map_validity_for_filename(map, f)
+  map.print_validity
   puts
 end
