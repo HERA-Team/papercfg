@@ -5,6 +5,7 @@ REFERENCE_FILES = sta_to_ant.yml \
 
 DERIVED_FILES = ant_to_pos.yml \
                 ant_to_sta.yml \
+								stapol_to_plate.yml \
                 stapol_to_rxpol.yml
 
 all: $(DERIVED_FILES)
@@ -22,6 +23,9 @@ stapol_to_rxpol.yml: sta_to_rx.yml
 # Files created by paper_config_chain.rb
 
 ant_to_pos.yml: ant_to_sta.yml sta_to_pos.yml
+	paper_config_chain.rb $^ > $@
+
+stapol_to_plate.yml: stapol_to_rxpol.yml rxpol_to_plate.yml
 	paper_config_chain.rb $^ > $@
 
 # Validate all files in the current directory
