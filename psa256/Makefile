@@ -14,6 +14,7 @@ DERIVED_FILES = ant_to_pos.yml \
                 fxin_to_antpol.yml \
                 fxin_to_stapol.yml \
                 fxin_to_plate.yml \
+                plate_to_rxpol.yml \
                 plate_to_stapol.yml \
                 stapol_to_fxin.yml \
                 stapol_to_plate.yml \
@@ -33,6 +34,9 @@ fxin_to_stapol.yml: stapol_to_fxin.yml
 	paper_config_invert.rb $^ > $@
 
 fxin_to_plate.yml: plate_to_fxin.yml
+	paper_config_invert.rb $^ > $@
+
+plate_to_rxpol.yml: rxpol_to_plate.yml
 	paper_config_invert.rb $^ > $@
 
 plate_to_stapol.yml: stapol_to_plate.yml
