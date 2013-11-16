@@ -40,7 +40,7 @@ fin = ARGV[0] || 'plate_to_stapol.yml'
 map = PaperCfg.load_file(fin)
 
 for p in 1..6
-  puts "PLATE #{p} (as viewed from INSIDE the hut):"
+  puts "PLATE #{p} #{map.comp_to} (as viewed from INSIDE the hut):"
   puts
   puts "      C8     C7     C6     C5     C4     C3     C2     C1"
   puts "   +------+------+------+------+------+------+------+------+"
