@@ -3,6 +3,9 @@
 require 'rubygems'
 require 'papercfg'
 
+# This script uses the plate_to_stapol.yml file to create ASCII-grams of each
+# plate showing the station polarization that is fed to each connector.
+#
 # The interior of hut has six (used) plates:
 #
 #   +----+  +----+
@@ -29,18 +32,8 @@ require 'papercfg'
 #  r6 | o  o  o  o  o  o  o  o | r6
 #     +------------------------+
 #       c8 c7 c6 c5 c4 c3 c2 c1
-#
-# This script uses the plate_to_stapol.yml file to create ASCII-grams of each
-# plate showing the station polarization that is fed to each connector.
 
-pretty = false
-sep = '   '
-
-if ARGV[0] == '-p'
-  ARGV.shift
-  pretty = true
-  sep = ' | '
-end
+sep = ' | '
 
 fin = ARGV[0] || 'plate_to_stapol.yml'
 
@@ -49,32 +42,24 @@ map = PaperCfg.load_file(fin)
 for p in 1..6
   puts "PLATE #{p} (as viewed from INSIDE the hut):"
   puts
-
-  if pretty
-    puts "      C8     C7     C6     C5     C4     C3     C2     C1"
-    puts "   +------+------+------+------+------+------+------+------+"
-  end
-
+  puts "      C8     C7     C6     C5     C4     C3     C2     C1"
+  puts "   +------+------+------+------+------+------+------+------+"
 
   for r in 1..6
     stapols = (1..8).map do |c|
-      s = map["p#{p}r#{r}c#{c}"]
+      s = map["p#{p}r#{r}c#{c}"] || ''
       # Strip leading 's' from station
       s.sub!(/^s/, '')
       '%-4s' % s
     end
     stapols.reverse!
-    printf('R%d | ', r) if pretty
+    printf('R%d | ', r)
     printf('%s', stapols.join(sep))
-    printf(' | R%d', r) if pretty
+    printf(' | R%d', r)
     puts
-    if pretty
-      puts "   +------+------+------+------+------+------+------+------+"
-    end
+    puts "   +------+------+------+------+------+------+------+------+"
   end
-  if pretty
-    puts "      C8     C7     C6     C5     C4     C3     C2     C1"
-  end
+  puts "      C8     C7     C6     C5     C4     C3     C2     C1"
 
   if p!= 6
     puts
