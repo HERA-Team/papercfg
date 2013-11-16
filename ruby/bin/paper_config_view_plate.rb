@@ -48,8 +48,8 @@ for p in 1..6
   for r in 1..6
     stapols = (1..8).map do |c|
       s = map["p#{p}r#{r}c#{c}"] || ''
-      # Strip leading 's' from station
-      s.sub!(/^s/, '')
+      # Strip leading 'r' (rxpol) or 's' (station) prefix letter
+      s.sub!(/^[rs]/, '')
       '%-4s' % s
     end
     stapols.reverse!
