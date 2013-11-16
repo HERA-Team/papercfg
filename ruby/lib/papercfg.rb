@@ -69,7 +69,25 @@ module PaperCfg
       out
     end
 
+    # Always converts +k+ to String.
+    def [](k)
+      # Convert k to String
+      k = k.to_s
+      super k
+    end
+
+    # Always converts +k+ to String.
+    def has_key?(k)
+      # Convert k to String
+      k = k.to_s
+      super k
+    end
+
+    # Always converts +k+ to String.
     def []=(k,v)
+      # Convert k to String
+      k = k.to_s
+
       # Check for dups, then call super, then update @dups.
       # This is needed so @dups is not altered if super raises and exception.
       is_dup = has_key? k
