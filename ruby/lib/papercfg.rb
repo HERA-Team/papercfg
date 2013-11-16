@@ -201,6 +201,22 @@ module PaperCfg
       outmap
     end
 
+    # Returns a Hash that has the same keys as +self+.  Each key corresponds to
+    # an Array of values encountered by walking through the mappings in
+    # +others+.  The Arrays will be of different lengths if some keys don't map
+    # all the way through.
+    def path(*others)
+      others.unshift(self)
+      outmap = {}
+      # Ignore 'metadata'
+      ks = keys - ['metadata']
+      ks.each do |k|
+        val = others.inject([k]) {|ka,map| ka << map[ka[-1]]}
+        outmap[k] = val.compact
+      end
+      outmap
+    end
+
     # Polarize this mapping by duplicating each key/value pair twice; once with
     # an 'X' suffix on key and value and once with a 'Y' suffix on key and
     # value.  Currently it does not prevent polarizing an already polarized
