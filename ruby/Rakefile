@@ -29,7 +29,7 @@ spec = Gem::Specification.new do |s|
     bin/paper_config_validate.rb
     bin/paper_config_view_antgrid.rb
     bin/paper_config_view_fxgrid.rb
-    bin/paper_config_view_fxin.rb
+    bin/paper_config_view_fxpanel.rb
     bin/paper_config_view_plate.rb
     lib/papercfg.rb
     lib/papercfg/version.rb
@@ -43,7 +43,7 @@ spec = Gem::Specification.new do |s|
     paper_config_polarize.rb
     paper_config_validate.rb
     paper_config_view_antgrid.rb
-    paper_config_view_fxgrid.rb
+    paper_config_view_fxpanel.rb
     paper_config_view_fxin.rb
     paper_config_view_plate.rb
   ]
