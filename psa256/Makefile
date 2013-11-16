@@ -16,6 +16,7 @@ DERIVED_FILES = ant_to_pos.yml \
                 fxin_to_plate.yml \
                 plate_to_rxpol.yml \
                 plate_to_stapol.yml \
+                rxpol_to_stapol.yml \
                 stapol_to_fxin.yml \
                 stapol_to_plate.yml \
                 stapol_to_rxpol.yml
@@ -40,6 +41,9 @@ plate_to_rxpol.yml: rxpol_to_plate.yml
 	paper_config_invert.rb $^ > $@
 
 plate_to_stapol.yml: stapol_to_plate.yml
+	paper_config_invert.rb $^ > $@
+
+rxpol_to_stapol.yml: stapol_to_rxpol.yml
 	paper_config_invert.rb $^ > $@
 
 # Files created by paper_config_polarize.rb
