@@ -62,6 +62,13 @@ module PaperCfg
       @comp_to   = COMPONENT_TYPES[@mnemonic_to]
     end
 
+    # Returns an unfrozen copy of +self+.
+    def dup
+      out = self.class.new(name)
+      self.each {|k,v| out[k] = v}
+      out
+    end
+
     def []=(k,v)
       # Check for dups, then call super, then update @dups.
       # This is needed so @dups is not altered if super raises and exception.
