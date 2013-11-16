@@ -197,7 +197,7 @@ module PaperCfg
                    metadata.merge(others[-1]['metadata']) :
                    others[-1]['metadata']
       end
-      outmap['metadata'] = metadata
+      outmap['metadata'] = metadata if metadata
       outmap
     end
 
