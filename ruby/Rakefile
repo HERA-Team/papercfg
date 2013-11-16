@@ -31,6 +31,7 @@ spec = Gem::Specification.new do |s|
     bin/paper_config_view_fxgrid.rb
     bin/paper_config_view_fxin.rb
     bin/paper_config_view_fxpanel.rb
+    bin/paper_config_view_path.rb
     bin/paper_config_view_plate.rb
     lib/papercfg.rb
     lib/papercfg/version.rb
@@ -47,6 +48,7 @@ spec = Gem::Specification.new do |s|
     paper_config_view_fxpanel.rb
     paper_config_view_fxin.rb
     paper_config_view_fxpanel.rb
+    paper_config_view_path.rb
     paper_config_view_plate.rb
   ]
   #s.default_executable = nil
