@@ -6,7 +6,7 @@
 # sX0-sX15 is outlier positions
 # sZ0 is reference "station" (SE corner of hut)
 ---
-sA0  : # TBD
+sA0  : a64
 sA1  : a10
 sA2  : a49
 sA3  : a3
@@ -22,116 +22,116 @@ sA12 : a34
 sA13 : a27
 sA14 : a51
 sA15 : a57
-sB0  : # TBD
+sB0  : a65
 sB1  : a9
-sB2  : # TBD
+sB2  : a66
 sB3  : a58
-sB4  : # TBD
+sB4  : a67
 sB5  : a1
 sB6  : a47
 sB7  : a4
-sB8  : # TBD
+sB8  : a68
 sB9  : a17
-sB10 : # TBD
+sB10 : a69
 sB11 : a13
-sB12 : # TBD
+sB12 : a70
 sB13 : a56
-sB14 : # TBD
+sB14 : a71
 sB15 : a59
-sC0  : # TBD
+sC0  : a72
 sC1  : a22
-sC2  : # TBD
+sC2  : a73
 sC3  : a61
-sC4  : # TBD
+sC4  : a74
 sC5  : a35
-sC6  : # TBD
+sC6  : a75
 sC7  : a18
-sC8  : # TBD
+sC8  : a76
 sC9  : a5
-sC10 : # TBD
+sC10 : a77
 sC11 : a32
-sC12 : # TBD
+sC12 : a78
 sC13 : a30
-sC14 : # TBD
+sC14 : a79
 sC15 : a23
-sD0  : # TBD
+sD0  : a80
 sD1  : a20
-sD2  : # TBD
+sD2  : a81
 sD3  : a63
-sD4  : # TBD
+sD4  : a82
 sD5  : a42
-sD6  : # TBD
+sD6  : a83
 sD7  : a37
-sD8  : # TBD
+sD8  : a84
 sD9  : a40
-sD10 : # TBD
+sD10 : a85
 sD11 : a14
-sD12 : # TBD
+sD12 : a86
 sD13 : a54
-sD14 : # TBD
+sD14 : a87
 sD15 : a50
-sE0  : # TBD
+sE0  : a88
 sE1  : a43
-sE2  : # TBD
+sE2  : a89
 sE3  : a2
-sE4  : # TBD
+sE4  : a90
 sE5  : a33
-sE6  : # TBD
+sE6  : a91
 sE7  : a6
-sE8  : # TBD
+sE8  : a92
 sE9  : a52
-sE10 : # TBD
+sE10 : a93
 sE11 : a7
-sE12 : # TBD
+sE12 : a94
 sE13 : a12
-sE14 : # TBD
+sE14 : a95
 sE15 : a38
-sF0  : # TBD
+sF0  : a96
 sF1  : a53
-sF2  : # TBD
+sF2  : a97
 sF3  : a21
-sF4  : # TBD
+sF4  : a98
 sF5  : a15
-sF6  : # TBD
+sF6  : a99
 sF7  : a16
-sF8  : # TBD
+sF8  : a100
 sF9  : a62
-sF10 : # TBD
+sF10 : a101
 sF11 : a44
-sF12 : # TBD
+sF12 : a102
 sF13 : a0
-sF14 : # TBD
+sF14 : a103
 sF15 : a26
-sG0  : # TBD
+sG0  : a104
 sG1  : a31
-sG2  : # TBD
+sG2  : a105
 sG3  : a45
-sG4  : # TBD
+sG4  : a106
 sG5  : a8
-sG6  : # TBD
+sG6  : a107
 sG7  : a11
-sG8  : # TBD
+sG8  : a108
 sG9  : a36
-sG10 : # TBD
+sG10 : a109
 sG11 : a60
-sG12 : # TBD
+sG12 : a110
 sG13 : a39
-sG14 : # TBD
+sG14 : a111
 sG15 : a46
-sX0  : # TBD
-sX1  : # TBD
-sX2  : # TBD
-sX3  : # TBD
-sX4  : # TBD
-sX5  : # TBD
-sX6  : # TBD
-sX7  : # TBD
-sX8  : # TBD
-sX9  : # TBD
-sX10 : # TBD
-sX11 : # TBD
-sX12 : # TBD
-sX13 : # TBD
-sX14 : # TBD
-sX15 : # TBD
+sX0  : a112
+sX1  : a113
+sX2  : a114
+sX3  : a115
+sX4  : a116
+sX5  : a117
+sX6  : a118
+sX7  : a119
+sX8  : a120
+sX9  : a121
+sX10 : a122
+sX11 : a123
+sX12 : a124
+sX13 : a125
+sX14 : a126
+sX15 : a127
 sZ0  : a-1
