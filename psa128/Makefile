@@ -26,47 +26,47 @@ all: $(DERIVED_FILES)
 # Files created by paper_config_invert.rb
 
 ant_to_sta.yml: sta_to_ant.yml
-	paper_config_invert.rb $^ > $@
+	paper_config_invert.rb$(RBSUFFIX) $^ > $@
 
 fxin_to_antpol.yml: antpol_to_fxin.yml
-	paper_config_invert.rb $^ > $@
+	paper_config_invert.rb$(RBSUFFIX) $^ > $@
 
 fxin_to_stapol.yml: stapol_to_fxin.yml
-	paper_config_invert.rb $^ > $@
+	paper_config_invert.rb$(RBSUFFIX) $^ > $@
 
 fxin_to_plate.yml: plate_to_fxin.yml
-	paper_config_invert.rb $^ > $@
+	paper_config_invert.rb$(RBSUFFIX) $^ > $@
 
 plate_to_rxpol.yml: rxpol_to_plate.yml
-	paper_config_invert.rb $^ > $@
+	paper_config_invert.rb$(RBSUFFIX) $^ > $@
 
 plate_to_stapol.yml: stapol_to_plate.yml
-	paper_config_invert.rb $^ > $@
+	paper_config_invert.rb$(RBSUFFIX) $^ > $@
 
 rxpol_to_stapol.yml: stapol_to_rxpol.yml
-	paper_config_invert.rb $^ > $@
+	paper_config_invert.rb$(RBSUFFIX) $^ > $@
 
 # Files created by paper_config_polarize.rb
 
 antpol_to_stapol.yml: ant_to_sta.yml
-	paper_config_polarize.rb $^ > $@
+	paper_config_polarize.rb$(RBSUFFIX) $^ > $@
 
 stapol_to_rxpol.yml: sta_to_rx.yml
-	paper_config_polarize.rb $^ > $@
+	paper_config_polarize.rb$(RBSUFFIX) $^ > $@
 
 # Files created by paper_config_chain.rb
 
 ant_to_pos.yml: ant_to_sta.yml sta_to_pos.yml
-	paper_config_chain.rb $^ > $@
+	paper_config_chain.rb$(RBSUFFIX) $^ > $@
 
 stapol_to_plate.yml: stapol_to_rxpol.yml rxpol_to_plate.yml
-	paper_config_chain.rb $^ > $@
+	paper_config_chain.rb$(RBSUFFIX) $^ > $@
 
 stapol_to_fxin.yml: stapol_to_rxpol.yml rxpol_to_plate.yml plate_to_fxin.yml
-	paper_config_chain.rb $^ > $@
+	paper_config_chain.rb$(RBSUFFIX) $^ > $@
 
 antpol_to_fxin.yml: antpol_to_stapol.yml stapol_to_fxin.yml
-	paper_config_chain.rb $^ > $@
+	paper_config_chain.rb$(RBSUFFIX) $^ > $@
 
 # Validate all files in the current directory
 validate:
