@@ -24,7 +24,7 @@ maxpath_len = paths[maxpath_key].length
 widths = (0...maxpath_len).map do |depth|
   values_at_depth = paths.values.map {|va| va[depth]}
   values_at_depth.compact
-  max_value_at_depth = values_at_depth.max_by {|v| v.length}
+  max_value_at_depth = values_at_depth.max_by {|v| v ? v.length : 0}
   max_value_at_depth.length
 end
 
