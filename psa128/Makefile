@@ -17,6 +17,7 @@ DERIVED_FILES = ant_to_pos.yml \
                 plate_to_rxpol.yml \
                 plate_to_stapol.yml \
                 rxpol_to_stapol.yml \
+                stapol_to_antpol.yml \
                 stapol_to_fxin.yml \
                 stapol_to_plate.yml \
                 stapol_to_rxpol.yml
@@ -52,6 +53,9 @@ antpol_to_stapol.yml: ant_to_sta.yml
 	paper_config_polarize.rb$(RBSUFFIX) $^ > $@ || rm $@
 
 stapol_to_rxpol.yml: sta_to_rx.yml
+	paper_config_polarize.rb$(RBSUFFIX) $^ > $@ || rm $@
+
+stapol_to_antpol.yml: sta_to_ant.yml
 	paper_config_polarize.rb$(RBSUFFIX) $^ > $@ || rm $@
 
 # Files created by paper_config_chain.rb
