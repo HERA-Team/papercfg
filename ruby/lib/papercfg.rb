@@ -325,11 +325,20 @@ module PaperCfg
 
   end # class Mapping
 
-  # Loads a file like YAML.load_file, but raises an exception if the top level
-  # is a mapping and it contains duplicate keys.
+  # Loads a file like YAML.load_file, but counts (and warns on) duplicate keys.
   def load_file(f)
     # Parse file to abstract syntax tree form
-    ast=Psych.parse_file(f)
+    begin
+      ast=Psych.parse_file(f)
+    rescue
+      # Opening file named by f failed.  If f starts with a '.' or a '/', then
+      # give up; otherwise try to look in ENV['PAPERCFG_DIR'] or
+      # "/etc/papercfg" if PAPERCFG_DIR does not exist in ENV.
+      raise if %r{^[./]} =~ f
+      f = File.join(ENV['PAPERCFG_DIR']||'/etc/papercfg', f)
+      ast=Psych.parse_file(f)
+    end
+
     map = Mapping.new(f)
 
     # If root node is a mapping, build Mapping object
