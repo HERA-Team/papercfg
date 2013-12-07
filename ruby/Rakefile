@@ -25,6 +25,7 @@ spec = Gem::Specification.new do |s|
   s.files = %w[
     bin/paper_config_chain.rb
     bin/paper_config_invert.rb
+    bin/paper_config_mirsel.rb
     bin/paper_config_polarize.rb
     bin/paper_config_validate.rb
     bin/paper_config_plot_array.rb
@@ -43,6 +44,7 @@ spec = Gem::Specification.new do |s|
   s.executables = %w[
     paper_config_chain.rb
     paper_config_invert.rb
+    paper_config_mirsel.rb
     paper_config_polarize.rb
     paper_config_validate.rb
     paper_config_plot_array.rb
