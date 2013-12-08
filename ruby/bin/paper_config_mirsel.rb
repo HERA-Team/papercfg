@@ -3,38 +3,55 @@
 require 'rubygems'
 require 'papercfg'
 
-def ants_in_row(map, row)
+def ants_in_row(sta_map, row)
   ants=[]
   if row
     16.times do |col|
-      ants << map["s#{row}#{col}"][1..-1].to_i + 1
+      ants << sta_map["s#{row}#{col}"][1..-1].to_i + 1
     end
   end
   ants
 end
 
-def ants_in_col(map, col)
+def ants_in_col(sta_map, col)
   ants=[]
   if col
     'ABCDEFGX'.each_char do |row|
-      ants << map["s#{row}#{col}"][1..-1].to_i + 1
+      ants << sta_map["s#{row}#{col}"][1..-1].to_i + 1
     end
   end
   ants
 end
 
-map = PaperCfg.load_file('sta_to_ant.yml')
+sta_map = PaperCfg.load_file('sta_to_ant.yml')
+fx_map = PaperCfg.load_file('antpol_to_fxin.yml')
 
 # Do rows
 'ABCDEFGX'.each_char do |row|
-  puts "row#{row.downcase}=#{ants_in_row(map,row).join(',')}"
+  puts "row#{row.downcase}=#{ants_in_row(sta_map,row).join(',')}"
 end
 
 # Do cols
 16.times do |col|
-  ants = ants_in_col(map, col)
+  ants = ants_in_col(sta_map, col)
   ants.pop # Remove X row
   puts "col#{col}=#{ants.join(',')}"
+end
+
+# For now, f selectors are based on X pols only because X and Y of a given
+# antenna are always on the same ADC chip.
+f=[]
+128.times do |a|
+  fxin = fx_map["a#{a}X"]
+  if PaperCfg::PATTERNS['fxin'] =~ fxin
+    feng = $1.to_i
+    f[feng] ||= []
+    f[feng] << (a+1).to_s
+  end
+end
+
+for feng in 1..8 do
+  puts "f#{feng}=#{f[feng].join(',')}"
 end
 
 __END__
