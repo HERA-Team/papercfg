@@ -11,10 +11,12 @@ cell_text = '---'
 fin = ARGV[0] || 'sta_to_ant.yml'
 map = PaperCfg.load_file(fin)
 
+base = ARGV[1] ? 1 : 0
+
 # Pattern used to parse stations
 pattern = PaperCfg::PATTERNS['sta']
 
-puts "PAPER Antenna Numbers for Grid Station Positions:"
+puts "#{base==0 ? 'PAPER' : 'MIRIAD'} Antenna Numbers for PAPER Grid Station Positions:"
 puts
 puts "      0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15"
 puts "  +-----------------------------------------------------------------+"
@@ -25,6 +27,7 @@ for r in 'ABCDEFGX'.split('')
     s = map["s#{r}#{c}"] || cell_text.dup
     # Strip prefix letter
     s.sub!(/^[a-z]/, '')
+    s = "#{s.to_i+base}" if ('0'..'9') === s[0]
     s.rjust(3)
   end
 
