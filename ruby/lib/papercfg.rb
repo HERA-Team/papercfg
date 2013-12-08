@@ -14,6 +14,19 @@ end
 
 module PaperCfg
 
+  # Maps component types to component descriptions.
+  #
+  #     COMPONENT_TYPES = {
+  #      'ant'    => 'antenna',
+  #      'antpol' => 'antenna polarization',
+  #      'sta'    => 'station',
+  #      'stapol' => 'station polarization',
+  #      'rx'     => 'recevier',
+  #      'rxpol'  => 'receiver polarization',
+  #      'plate'  => 'plate connector',
+  #      'fxin'   => 'F engine input',
+  #      'pos'    => 'position'
+  #    }
   COMPONENT_TYPES = {
     'ant'    => 'antenna',
     'antpol' => 'antenna polarization',
@@ -27,7 +40,11 @@ module PaperCfg
   }
 
   # Patterns used to validate names of each type.  Parentheses are used to
-  # capture each variable portion of a name.
+  # capture each variable portion of a name.  For example:
+  #
+  #     if fxin =~ PATTERNS['fxin']
+  #       feng, adc, chan = $1, $2, $3
+  #     end
   PATTERNS = {
     'ant'    => /^a(-?[1-9]\d*|0)$/,
     'antpol' => /^a(-?[1-9]\d*|0)([XY])$/,
