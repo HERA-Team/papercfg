@@ -10,9 +10,9 @@ require 'papercfg'
 
 cell_text = '--'
 row_cells = [cell_text] * 16
-# Build global_grid[0..6][0..15]
+# Build global_grid[0..7][0..15]
 global_grid = []
-7.times {global_grid << row_cells.dup}
+8.times {global_grid << row_cells.dup}
 
 fin = ARGV[0] || 'fxin_to_stapol.yml'
 map = PaperCfg.load_file(fin)
@@ -21,9 +21,9 @@ map = PaperCfg.load_file(fin)
 pattern = PaperCfg::PATTERNS['stapol']
 
 for f in 1..8
-  # Build grid[0..6][0..15]
+  # Build grid[0..7][0..15]
   grid = []
-  7.times {grid << row_cells.dup}
+  8.times {grid << row_cells.dup}
 
   # Init outlier counter
   num_outliers = 0
@@ -41,14 +41,11 @@ for f in 1..8
       # Skip Y pols
       next if pol == 'Y'
 
-      # Count and skip outliers
-      unless ('A'..'G') === row
-        num_outliers += 1
-        next
-      end
-
       # Convert row and col to number
-      row = row.ord - 'A'.ord
+      row = case row
+            when 'A'..'G'; row.ord - 'A'.ord
+            when 'X'; 7
+            end
       col = col.to_i
 
       # Put text in grid and global_grid
@@ -66,16 +63,19 @@ for f in 1..8
   end
 
   # Output grid
-  puts "PAPER F Engine #{f} (pf#{f}) Input Grid (#{num_outliers} outliers not shown):"
+  puts "PAPER F Engine #{f} (pf#{f}) Input Grid:"
   puts
   puts "     0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15"
   puts "  +----------------------------------------------------------------+"
 
-  for row in 0..6
-    print "#{'ABCDEFG'[row]} | "
+  for row in 0..7
+    print "#{'ABCDEFGX'[row]} | "
     print grid[row].join('  ')
-    print " | #{'ABCDEFG'[row]}"
+    print " | #{'ABCDEFGX'[row]}"
     puts
+    if row == 6
+      puts "  +----------------------------------------------------------------+"
+    end
   end
 
   puts "  +----------------------------------------------------------------+"
@@ -85,16 +85,19 @@ for f in 1..8
 end
 
 # Output global_grid
-puts "PAPER F Engine Global Input Grid (outliers not shown):"
+puts "PAPER F Engine Global Input Grid:"
 puts
 puts "     0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15"
 puts "  +----------------------------------------------------------------+"
 
-for row in 0..6
-  print "#{'ABCDEFG'[row]} | "
+for row in 0..7
+  print "#{'ABCDEFGX'[row]} | "
   print global_grid[row].join('  ')
-  print " | #{'ABCDEFG'[row]}"
+  print " | #{'ABCDEFGX'[row]}"
   puts
+    if row == 6
+      puts "  +----------------------------------------------------------------+"
+    end
 end
 
 puts "  +----------------------------------------------------------------+"
